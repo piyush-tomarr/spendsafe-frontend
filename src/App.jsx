@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Signup from './Pages/Signup'
 import Login from './Pages/Login'
 import Otp from './Pages/Otp'
@@ -32,6 +32,7 @@ const App = () => {
 
          // Finance Manager Routes
           <Route path='/FMmain' element={<FinanceManagerMain/>}>
+          <Route index element={<Navigate to="home" replace />} />
                   <Route path='home' element={<FMhome/>} />
                   <Route path='expances' element={<Expances/>} />
                   <Route path='wallet' element={<Wallet/>} />
