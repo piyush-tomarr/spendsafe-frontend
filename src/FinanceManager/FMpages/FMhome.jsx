@@ -111,9 +111,11 @@ useEffect(() => {
         <div className="relative bg-white border border-gray-200 rounded-2xl pt-2 pb-5 px-10 overflow-hidden shadow-sm ">
           {/* Top-left corner div */}
           <div className="absolute top-0 left-0 w-10 h-10 bg-red-500 rounded-br-2xl" />
+          
 
-          {/* Content */}
-          <div className="ml-5">
+          { !forecast ?<div className="h-[100%] w-[100%] flex items-center justify-center font-semibold text-red-500">
+            <p>Please set up yout wallet before accessing this feature</p>
+          </div>:  <div className="ml-5">
             <p className="text-md font-semibold tracking-wider uppercase text-gray-400 mb-2 font-arvo">
               Wallet Summary
             </p>
@@ -128,15 +130,19 @@ useEffect(() => {
               </span>
               .
             </p>
-          </div>
+          </div> }
+        
         </div>
 
         <div className="relative bg-white border border-gray-200 rounded-2xl pt-2 pb-5 px-10 overflow-hidden shadow-sm">
           {/* Top-left corner div */}
           <div className="absolute top-0 left-0 w-10 h-10 bg-blue-500 rounded-br-2xl" />
-
+             
           {/* Content */}
-          <div className="ml-5">
+
+          {  !budgetAlerts ?  <div className="h-[100%] w-[100%] flex items-center justify-center font-semibold text-red-500 ">
+            <p>Please set up yout wallet before accessing this feature</p>
+          </div> : <div className="ml-5">
             <p className="text-sm  md:text-md font-semibold tracking-wider uppercase text-gray-400 mb-2 font-arvo flex  justify-between">
               <span>{budgetAlerts?.status}</span>  <span className="flex">Spent: <span className="text-sm text-black flex justify-center items-center"><IndianRupee size={14}/> {budgetAlerts?.spent}</span> </span>
             </p>
@@ -148,7 +154,11 @@ useEffect(() => {
 }`}>
              {budgetAlerts?.message}
             </p>
-          </div>
+          </div>}
+
+      
+
+        
         </div>
       </div>
 
